@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Splash&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <main class="d-flex justify-content-center align-items-center">
+        <div>
+            <div class="mainContainer mt-0 mb-5 text-center mx-auto" id="main">
+                <span id="turn"></span>    
+                <div class="box" style="border-left: 0; border-top: 0;" id="0"></div>
+                <div class="box" style="border-top: 0" id="1"></div>
+                <div class="box" style="border-top: 0; border-right: 0;" id="2"></div>
+                <div class="box" style="border-left: 0;" id="3"></div>
+                <div class="box" id="4"></div>
+                <div class="box" style="border-right: 0;" id="5"></div>
+                <div class="box" style="border-left: 0; border-bottom: 0;" id="6"></div>
+                <div class="box" style="border-bottom: 0;" id="7"></div>
+                <div class="box" style="border-right: 0; border-bottom: 0;" id="8"></div>
+            </div>
+            
+            <button class="btn d-block d-md-inline-block mx-auto" id="playAgain">Play Again</button>
+            <button class="btn d-block d-md-inline-block mx-auto" id="menuButton">Menu</button>
+        </div>
+        
+
+   
+        <div class="container menuGame d-flex flex-column justify-content-center align-items-center" id="menuGame">
+            <div class="fixedHeightRender d-flex flex-column justify-content-start">
+                <div class="mb-5">
+                    <div class="mb-5 text-center"><span id="tic">Tic</span> <span id="tac">Tac</span> <span id="toe">Toe</span></div>
+                    <div class="text-center">
+                        <button class="btn btn-rounded d-inline-block" id="singlePlayer">Single Player</button>
+                        <button class="btn btn-rounded d-inline-block" id="multiPlayer">Multi Player</button>
+                        <button class="btn btn-rounded d-inline-block bubbleEffect" id="godMode">GodMode
+                            <span></span><span></span><span></span><span></span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="gameSettings" id="gameSettings">
+                    <div class="text-center" id="settingsMultiPlayer">
+
+                        <div id="firstPlayerSettings">
+                            <input class="d-inline-block w-50 mb-4" type="text" id="firstPlayerInput" placeholder="First player name">
+                            <p>Select symbol</p>
+                            <div>
+                                <button class="btn btnSymbols d-inline-block" id="FirstPlayerSymbolX">X</button>
+                                <button class="btn btnSymbols d-inline-block" id="FirstPlayerSymbolO">O</button>
+                            </div>
+                            <button class="btn btnSymbols d-inline-block" id="firstPlayerDone" disabled>Done</button>
+                        </div>
+    
+                        <div id="secondPlayerSettings">
+                            <input class="d-inline-block w-50 mb-4" type="text" id="secondPlayerInput" placeholder="Second player name">
+                            <button class="btn btnSymbols d-block" id="multiPlayerStart">Start</button>
+                        </div>  
+    
+                        <div id="singlePlayerSettings">
+                            <div>
+                                <h4>Select symbol</h4>
+                                <button class="btn btnSymbols d-inline-block" id="singlePlayerSymbolX">X</button>
+                                <button class="btn btnSymbols d-inline-block" id="singlePlayerSymbolO">O</button>
+                            </div>
+                        </div> 
+                        
+                        <div id="godModeSettings">
+                            <h4>Comming soon.</h4>
+                        </div>
+
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </main>
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+</body>
+</html>
