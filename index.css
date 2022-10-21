@@ -134,7 +134,7 @@ main {
 
 @media (min-width:768px) {
 	.godModeText {
-		width: 50%;
+		width: 70%;
 		font-size: 1rem;
 	}
 }
@@ -175,7 +175,6 @@ main {
 }
 
 /* gameSettings */
-
 #secondPlayerSettings,
 #firstPlayerSettings,
 #singlePlayerSettings,
@@ -184,7 +183,6 @@ main {
 }
 
 /* Tic Tac Toe spans */
-
 #tic,
 #tac,
 #toe {
@@ -195,7 +193,6 @@ main {
 }
 
 /*BubbleUpEffects*/
-
 .bubbleEffect {
     text-transform: uppercase;
     font-weight: bold;
