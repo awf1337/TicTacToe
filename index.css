@@ -64,30 +64,57 @@ main {
 	color: var(--cl-primary);
 }
 
+
+/* Buttons */
 .btn {
 	width: 200px;
+	padding: .70em 0;
 	color: var(--cl-white);
 	font-weight: bold;
 	cursor: pointer;
 	font-size: 15px;
 	display: block;
+	letter-spacing: .1em;
 	margin: 10px auto;
 	-webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
 }
 
-.btnSymbols {
-	width: fit-content;
-}
+@media (min=)
 
 .btn:hover {
 	color: var(--cl-secondary);
 }
 
+.btnSymbols {
+	width: unset;
+	padding: .1em .5em;
+	font-size: 1.3rem;
+}
+
+.btnDoneStart {
+	font-size: 1rem;
+	padding: .2em 1em;
+}
+
+.btn .boxBtn  {
+	width: 100px;
+	height: 1em;
+	background-color: red;
+}
+
+#godModeSettings p {
+	letter-spacing: .12em;
+}
+
 .win{
 	background: var(--cl-primary-hover); 
 	color: rgb(0, 94, 255);
+}
+
+.oapacitySet {
+	opacity: 50%;
 }
 
 .menuGame {
@@ -119,6 +146,7 @@ main {
 	color: var(--cl-white);
 	opacity: 50%;
 	background-color: transparent;
+	margin-top: 0;
 }
 
 #FirstPlayerSymbolX:focus,
@@ -139,11 +167,15 @@ main {
     display: none;
 }
 
-/* Tic Tac Toe color effects */
+/* Tic Tac Toe spans */
+
 #tic,
 #tac,
 #toe {
+	margin-bottom: 0;
 	display: inline;
+	font-size: 4rem;
+	letter-spacing: .3rem;
 }
 
 /*BubbleUpEffects*/

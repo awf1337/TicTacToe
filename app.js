@@ -40,7 +40,7 @@ const   turn = document.getElementById("turn"),
     },1000)
 
 /* 
-Single player mode settings inputs 
+Single player mode render/settings inputs 
 */
 document.getElementById('singlePlayer').onclick = () => {
     gameModeReset();
@@ -67,7 +67,7 @@ document.getElementById('singlePlayerSymbolO').onclick = () => {
     boxes[random].textContent = playerTwo.symbol;
 }
 /* 
-Multi player mode settings inputs 
+Multi player mode reder/settings inputs 
 */
 document.getElementById('multiPlayer').onclick = () => {
     hideGameSettings();
@@ -100,26 +100,34 @@ document.getElementById('firstPlayerDone').onclick = () => {
 }
 
 document.getElementById('multiPlayerStart').onclick = () => {
-    menuGameDiv.style.zIndex  = '-2';
-    secondPlayerSettings.style.display = "none";
-    playerOne.names = firstPlayerInputName.value;
-    playerTwo.names = secondPlayerInputName.value;
-    turn.textContent= `${playerOne.symbol === "X" ? playerOne.names : playerTwo.names} Turn Now`;
+    if(secondPlayerInputName.value !== ''){
+        menuGameDiv.style.zIndex  = '-2'
+        secondPlayerSettings.style.display = "none";
+        playerOne.names = firstPlayerInputName.value;
+        playerTwo.names = secondPlayerInputName.value;
+        turn.textContent= `${playerOne.symbol === "X" ? playerOne.names : playerTwo.names} Turn Now`;
+    }
+    
 }
+
 /* 
-God mode settings inputs 
+God mode render/settings inputs 
 */
 document.getElementById('godMode').onclick = () => {
     hideGameSettings();
     gameModeReset();
     gameMode.godMode = true;
     godModeSettings.style.display = 'unset';
-    menuGameDiv.style.zIndex  = '-2';
+    
     playerOne.symbol = 'X';
     playerTwo.symbol = 'O';
     turn.textContent = 'Your turn now'
-    //create an array with 9 index from 0 to 8
+    //create an array with 9 index from 0 to 8 for GodMode
     origBoard = Array.from(Array(9).keys());
+}
+
+document.getElementById('godModeStart').onclick = () => {
+    menuGameDiv.style.zIndex  = '-2';
 }
 
 document.getElementById("menuButton").onclick = () => {
@@ -144,7 +152,7 @@ document.getElementById('playAgain').onclick = () => {
     if(gameMode.godMode) turn.textContent = 'Your turn'
 }
 
-function selectWinnerBoxes(b1, b2, b3) {
+const selectWinnerBoxes = (b1, b2, b3) => {
     b1.classList.add("win");
     b2.classList.add("win");
     b3.classList.add("win");
@@ -169,7 +177,7 @@ const boxesHoverTrigger = (hover,b1 = 0, b2 = 0, b3 = 0) => {
     }
 }
 
-function getWinner() {
+const getWinner = () => {
     const   box1 = document.getElementById("0"),
             box2 = document.getElementById("1"),
             box3 = document.getElementById("2"),
@@ -367,7 +375,7 @@ function bestSpot() {
 }
 
 function minimax(newBoard, player) {
-    var availSpots = emptySquares();
+    let availSpots = emptySquares();
 
     if (checkWin(newBoard, playerOne.symbol)) {
         return { score: -10 };
@@ -376,9 +384,10 @@ function minimax(newBoard, player) {
     } else if (availSpots.length === 0) {
         return { score: 0 };
     }
-    var moves = [];
-    for (var i = 0; i < availSpots.length; i++) {
-        var move = {};
+
+    let moves = [];
+    for (let i = 0; i < availSpots.length; i++) {
+        let move = {};
         move.index = newBoard[availSpots[i]];
         newBoard[availSpots[i]] = player;
 
@@ -430,3 +439,70 @@ function checkTie() {
     }
     return false;
 }
+
+
+/* ===========
+Easy minimax() code
+https://thecodingtrain.com/challenges/154-tic-tac-toe-minimax
+============
+let ai = 'X';
+let human = 'O';
+
+function bestMove() {
+    // AI to make its turn
+    let bestScore = -Infinity;
+    let move;
+    for (let i = 0; i < 8; i++) {
+        // Is the spot available?
+        if (origBoard[i] === 'number') {
+            origBoard[i] = ai;
+            let score = minimax(origBoard, 0, false);
+            origBoard[i] = '';
+            if (score > bestScore) {
+                bestScore = score;
+                move = [i];
+            }
+        }
+    }
+    origBoard[move] = ai;
+  }
+  
+  let scores = {
+    X: 10,
+    O: -10,
+    tie: 0
+  };
+  
+  function minimax(board, depth, isMaximizing) {
+    let result = checkWinner(); // return X || O || tie
+    if (result !== null) {
+      return scores.result;
+    }
+  
+    if (isMaximizing) {
+        let bestScore = -Infinity;
+        for (let i = 0; i < 8; i++) {
+            // Is the spot available?
+            if (board[i] == 'number') {
+                board[i] = ai;
+                let score = minimax(board, depth + 1, false);
+                board[i] = '';
+                bestScore = max(score, bestScore);
+            }
+        }
+        return bestScore;
+    } else {
+        let bestScore = Infinity;
+        for (let i = 0; i < 3; i++) {
+            // Is the spot available?
+            if (board[i] == 'number') {
+                board[i] = human;
+                let score = minimax(board, depth + 1, true);
+                board[i] = '';
+                bestScore = min(score, bestScore);
+            }
+        }
+        return bestScore;
+    }
+  }
+*/
