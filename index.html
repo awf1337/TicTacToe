@@ -29,20 +29,17 @@
                 <button class="btn d-block mb-4 m-md-1" id="playAgain">Play Again</button>
                 <button class="btn d-block ml-md-4 m-md-1" id="menuButton">Menu</button>
             </div>
-            
         </div>
         
-
-   
-        <div class="container menuGame d-flex flex-column justify-content-center align-items-center" id="menuGame">
-            <div class="fixedHeightRender d-flex flex-column justify-content-start">
-                <div class="mb-5">
+        <div class="container menuGame d-flex flex-column justify-content-start mt-5 mt-md-0 justify-content-md-center align-items-center" id="menuGame">
+            <div class="fixedHeightRender d-flex flex-column mt-md-0">
+                <div class="mb-3 mb-md-5">
                     <div class="text-center"><span id="tic">Tic</span> <span id="tac">Tac</span> <span id="toe">Toe</span></div>
                     <div class="text-center mb-5 oapacitySet"><p>X always start</p></div>
                     <div class="text-center">
-                        <button class="btn btn-rounded d-inline-block" id="singlePlayer">Single Player</button>
-                        <button class="btn btn-rounded d-inline-block ml-2" id="multiPlayer">Multi Player</button>
-                        <button class="btn btn-rounded d-inline-block bubbleEffect ml-2" id="godMode">GodMode
+                        <button class="btn btn-rounded d-md-inline-block mx-auto d-block ml-0" id="singlePlayer">Single Player</button>
+                        <button class="btn btn-rounded d-md-inline-block d-block mx-auto ml-0 ml-md-2" id="multiPlayer">Multi Player</button>
+                        <button class="btn btn-rounded d-md-inline-block mx-auto d-block bubbleEffect ml-0 ml-md-2" id="godMode">GodMode
                             <span></span><span></span><span></span><span></span>
                         </button>
                     </div>
@@ -50,19 +47,18 @@
                 
                 <div class="gameSettings" id="gameSettings">
                     <div class="text-center" id="settingsMultiPlayer">
-
                         <div id="firstPlayerSettings">
-                            <input class="d-inline-block w-50 mb-4" type="text" id="firstPlayerInput" placeholder="First player name">
+                            <input class="d-inline-block w-75 mb-3 mb-md-4" type="text" id="firstPlayerInput" placeholder="First player name">
                             <p>Select symbol</p>
                             <div>
                                 <button class="btn btnSymbols d-inline-block" id="FirstPlayerSymbolX">X</button>
-                                <button class="btn btnSymbols d-inline-block ml-4" id="FirstPlayerSymbolO">O</button>
+                                <button class="btn btnSymbols d-inline-block ml-2 ml-md-4" id="FirstPlayerSymbolO">O</button>
                             </div>
-                            <button class="btn btnSymbols d-inline-block btnDoneStart mt-4" id="firstPlayerDone" disabled>Done</button>
+                            <button class="btn btnSymbols d-inline-block btnDoneStart mt-2 mt-md-4" id="firstPlayerDone" disabled>Done</button>
                         </div>
     
                         <div id="secondPlayerSettings">
-                            <input class="d-inline-block w-50 mb-4" type="text" id="secondPlayerInput" placeholder="Second player name">
+                            <input class="d-inline-block w-50 mb-3 mb-md-4" type="text" id="secondPlayerInput" placeholder="Second player name">
                             <button class="btn btnSymbols d-block btnDoneStart" id="multiPlayerStart">Start</button>
                         </div>  
     
@@ -70,12 +66,12 @@
                             <div>
                                 <h4>Select symbol</h4>
                                 <button class="btn btnSymbols d-inline-block" id="singlePlayerSymbolX">X</button>
-                                <button class="btn btnSymbols d-inline-block ml-4" id="singlePlayerSymbolO">O</button>
+                                <button class="btn btnSymbols d-inline-block ml-2 ml-md-4" id="singlePlayerSymbolO">O</button>
                             </div>
                         </div> 
                         
                         <div id="godModeSettings">
-                            <div class="w-50 mx-auto mb-4">
+                            <div class="godModeText mx-auto mb-2 mb-md-4">
                                 <p>Minimax (sometimes MinMax) is a decision rule used in artificial intelligence, 
                                     decision theory, game theory, statistics, and philosophy for minimizing the 
                                     possible loss for a worst case (maximum loss) scenario.</p>
@@ -83,7 +79,6 @@
                             
                             <button class="btn btnSymbols d-inline-block btnDoneStart" id="godModeStart">I'm Ready</button>
                         </div>
-
                     </div>
                 </div>
             </div> 

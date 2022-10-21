@@ -81,8 +81,6 @@ main {
 	box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
 }
 
-@media (min=)
-
 .btn:hover {
 	color: var(--cl-secondary);
 }
@@ -127,6 +125,24 @@ main {
 
 .fixedHeightRender {
 	height: 400px;
+}
+
+.godModeText {
+	width: 100%;
+	font-size: .9rem;
+}
+
+@media (min-width:768px) {
+	.godModeText {
+		width: 50%;
+		font-size: 1rem;
+	}
+}
+
+@media (max-width:768px) {
+	.fixedHeightRender {
+		margin-top: 85px ;
+	}
 }
 
 #firstPlayerInput,
