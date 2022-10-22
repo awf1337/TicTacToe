@@ -14,6 +14,16 @@ let     playerTurn = 0,
             godMode : false
         };
 
+const   box1 = document.getElementById("0"),
+        box2 = document.getElementById("1"),
+        box3 = document.getElementById("2"),
+        box4 = document.getElementById("3"),
+        box5 = document.getElementById("4"),
+        box6 = document.getElementById("5"),
+        box7 = document.getElementById("6"),
+        box8 = document.getElementById("7"),
+        box9 = document.getElementById("8");
+
 const   turn = document.getElementById("turn"),
         boxes = document.querySelectorAll("#main div"),
         singlePlayerSettings = document.getElementById('singlePlayerSettings'),
@@ -152,10 +162,19 @@ document.getElementById('playAgain').onclick = () => {
     if(gameMode.godMode) turn.textContent = 'Your turn'
 }
 
+const boxesHoverTrigger = (hover,b1 = 0, b2 = 0, b3 = 0) => {
+    for (let i = 0; i < boxes.length; i++) {
+        if (boxes[i] !== b1 && boxes[i] !== b2 && boxes[i] !== b3)
+        boxes[i].className = hover;
+        if (boxes[i] === b1 || boxes[i] === b2 || boxes[i] === b3) {
+            b1.classList.add("win");
+            b2.classList.add("win");
+            b3.classList.add("win");
+        }
+    }
+}
+
 const selectWinnerBoxes = (b1, b2, b3) => {
-    b1.classList.add("win");
-    b2.classList.add("win");
-    b3.classList.add("win");
 
     boxesHoverTrigger("boxNoHover",b1,b2,b3)
 
@@ -170,23 +189,7 @@ const selectWinnerBoxes = (b1, b2, b3) => {
     }
 }
 
-const boxesHoverTrigger = (hover,b1 = 0, b2 = 0, b3 = 0) => {
-    for (let i = 0; i < boxes.length; i++) {
-        if (boxes[i] !== b1 && boxes[i] !== b2 && boxes[i] !== b3)
-        boxes[i].className = hover;
-    }
-}
-
 const getWinner = () => {
-    const   box1 = document.getElementById("0"),
-            box2 = document.getElementById("1"),
-            box3 = document.getElementById("2"),
-            box4 = document.getElementById("3"),
-            box5 = document.getElementById("4"),
-            box6 = document.getElementById("5"),
-            box7 = document.getElementById("6"),
-            box8 = document.getElementById("7"),
-            box9 = document.getElementById("8");
 
     if (box1.textContent !== "" && box1.textContent === box2.textContent && box1.textContent === box3.textContent)
     selectWinnerBoxes(box1, box2, box3);
@@ -392,10 +395,10 @@ function minimax(newBoard, player) {
         newBoard[availSpots[i]] = player;
 
         if (player == playerTwo.symbol) {
-            var result = minimax(newBoard, playerOne.symbol);
+            let result = minimax(newBoard, playerOne.symbol);
             move.score = result.score;
         } else {
-            var result = minimax(newBoard, playerTwo.symbol);
+            let result = minimax(newBoard, playerTwo.symbol);
             move.score = result.score;
         }
 
@@ -404,18 +407,18 @@ function minimax(newBoard, player) {
         moves.push(move);
     }
 
-    var bestMove;
+    let bestMove;
     if (player === playerTwo.symbol) {
-        var bestScore = -10000;
-        for (var i = 0; i < moves.length; i++) {
+        let bestScore = -10000;
+        for (let i = 0; i < moves.length; i++) {
             if (moves[i].score > bestScore) {
                 bestScore = moves[i].score;
                 bestMove = i;
             }
         }
     } else {
-        var bestScore = 10000;
-        for (var i = 0; i < moves.length; i++) {
+        let bestScore = 10000;
+        for (let i = 0; i < moves.length; i++) {
             if (moves[i].score < bestScore) {
                 bestScore = moves[i].score;
                 bestMove = i;
@@ -424,7 +427,6 @@ function minimax(newBoard, player) {
     }
     return moves[bestMove];
 }
-
 
 function gameOver(gameWon) {
     turn.textContent = (gameWon.player == playerOne.symbol ? "You win!" : "You lose.");
